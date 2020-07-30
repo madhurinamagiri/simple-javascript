@@ -1,0 +1,25 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Simple async/await</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script> -->
+</head>
+<body>
+    <img src="" id="image" width=400 />
+    <script>     
+        getImage().catch(error => {
+            console.log("Error in reading image.")
+        })   
+        async function getImage(){
+            var readImage = await fetch("image.jpg")
+            var imageBlob = await readImage.blob()
+            document.getElementById('image').src = URL.createObjectURL(imageBlob);
+        }
+       
+    </script>
+</body>
+</html>
